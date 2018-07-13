@@ -8,19 +8,22 @@ import {LoginService} from "../../services/login.service";
 })
 export class LoginComponent {
 
-  model = {'username': '', 'password': ''};
-  private currentUserName;
+  public model = {'username':'', 'password':''};
+  currentUserName;
 
-  constructor(private loginService: LoginService) {
+  constructor(public loginService: LoginService) {
     this.currentUserName = localStorage.getItem("currentUsername");
   }
 
   onSubmit() {
+    console.log('onSubmit', this.model);
     this.loginService.sendCredential(this.model).subscribe(
       data => {
+        console.log('Data:');
         localStorage.setItem("token", JSON.parse(JSON.stringify(data))._body);
         this.loginService.sendToken(localStorage.getItem("token")).subscribe(
           data => {
+            console.log('Data2:' + data);
             this.currentUserName = this.model.username;
             localStorage.setItem("currentUsername", this.model.username);
             this.model.username = '';

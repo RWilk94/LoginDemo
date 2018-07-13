@@ -11,6 +11,8 @@ import {RegisterService} from "./services/register.service";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
+import {HttpModule} from "@angular/http";
+import {TestService} from "./services/test.service";
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import {AppRoutingModule} from "./app-routing.module";
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    HttpModule,
     HttpClientModule
   ],
   providers: [
     LoginService,
-    RegisterService],
+    RegisterService,
+    TestService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
