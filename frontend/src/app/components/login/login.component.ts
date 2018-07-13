@@ -19,8 +19,10 @@ export class LoginComponent {
     console.log('onSubmit', this.model);
     this.loginService.sendCredential(this.model).subscribe(
       data => {
-        console.log('Data:');
-        localStorage.setItem("token", JSON.parse(JSON.stringify(data))._body);
+        console.log('Data: ' + data);
+        console.log('Data1: ' + JSON.stringify(data));
+        console.log('Data2: ' + JSON.parse(JSON.stringify(data))._body.substring(10, JSON.parse(JSON.stringify(data))._body.length-2));
+        localStorage.setItem("token", JSON.parse(JSON.stringify(data))._body.substring(10, JSON.parse(JSON.stringify(data))._body.length-2));
         this.loginService.sendToken(localStorage.getItem("token")).subscribe(
           data => {
             console.log('Data2:' + data);

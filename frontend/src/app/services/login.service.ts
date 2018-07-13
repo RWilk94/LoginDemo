@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {s} from "@angular/core/src/render3";
 import {Http,Headers} from "@angular/http";
 
 @Injectable({
@@ -16,7 +14,7 @@ export class LoginService {
 
   sendCredential(model){
     console.log('send credential');
-    let tokenUrl = "http://localhost:8080/login";
+    let tokenUrl = "http://localhost:8080/login/";
     let header = new Headers({'Content-Type': 'application/json'});
     let result = this.http.post(tokenUrl, model, {headers: header});
       //.map(res => res.json());
@@ -26,7 +24,7 @@ export class LoginService {
 
   sendToken(token) {
     console.log('setToken');
-    let tokenUrl = "http://localhost:8080/rest/user/users";
+    let tokenUrl = "http://localhost:8080/rest/user/users/";
     console.log('Bearer ' + token);
     let getHeaders = new Headers({'Authorization': 'Bearer ' + token});
     return this.http.get(tokenUrl, {headers: getHeaders})
