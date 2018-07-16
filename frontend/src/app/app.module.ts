@@ -13,6 +13,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpModule} from "@angular/http";
 import {TestService} from "./services/test.service";
+import {MatIconModule, MatToolbarModule} from "@angular/material";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,10 @@ import {TestService} from "./services/test.service";
     BrowserModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatIconModule,
+    FlexLayoutModule
   ],
   providers: [
     LoginService,

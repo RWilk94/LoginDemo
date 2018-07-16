@@ -33,7 +33,7 @@ export class LoginService {
   logout() {
     localStorage.setItem("token", "");
     localStorage.setItem("currentUsername", '');
-    alert("You just logged out.");
+    // alert("You just logged out.");
   }
 
   checkLogin() {

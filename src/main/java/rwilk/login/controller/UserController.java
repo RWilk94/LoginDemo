@@ -19,7 +19,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import rwilk.login.model.User;
 import rwilk.login.service.UserService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200/*")
 @RestController
 public class UserController {
 
@@ -55,11 +55,6 @@ public class UserController {
     String jsonToken = "{\"token\":\"" + token + "\"}";
 
     return new ResponseEntity<>(jsonToken, HttpStatus.OK);
-  }
-
-  @RequestMapping(value = "/test", method = RequestMethod.POST)
-  public String getString() {
-    return "{\"exampleString\": \"exampleString\"}";
   }
 
 }
